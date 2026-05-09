@@ -1,6 +1,6 @@
 # Bak.Gör (Alpha) — Technical Documentation
-
-<p style="margin-top:60px!important;" align="center">
+<br>
+<p align="center">
 <img src="./docs/bak-gor-v2.png" width="30%">
 </p>
 
