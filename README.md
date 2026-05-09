@@ -13,8 +13,9 @@ Bak.Gör is a macOS Quick Look extension that previews plain-text-based files (s
 (WIP) MacOS quicklook extension to preview CSS files via space key. More file types will be added in the future release of the extension. 
 </p>
 
-<img src="./docs/bak-gor-v2.png" width="30%">
-
+<p style="margin-top:20px" align="center">
+<img src="./docs/bakgor01.jpeg" width="100%">
+</p>
 
 ## Motivation
 Whenever I need to quickly check `CSS` files, I have to double-click and wait for VS Code to initialized, etc... I've just wanted to hit Space key and see what is inside of the `CSS` document quickly. To overcome this tedious process, I've developed Bak.Gör. The name of the of the extensin is in Turkish. 
@@ -26,6 +27,10 @@ Gör = See
 
 ## Installation (End User)
 The deployed version will be released later...
+
+<p style="margin-top:20px" align="center">
+<img src="./docs/bakgor02.jpeg" width="100%">
+</p>
 
 1. Clone the repo.
 2. Build an archive in Xcode (`Product → Archive → Distribute App → Direct Distribution`).
