@@ -1,8 +1,8 @@
-<h1>Bak.Gör (Alpha) — Technical Documentation</h1>
+# Bak.Gör (Alpha) — Technical Documentation
 
-<div align="center" style="margin-top:20px">
+<p style="margin-top:60px!important;" align="center">
 <img src="./docs/bak-gor-v2.png" width="30%">
-</div>
+</p>
 
 
 
