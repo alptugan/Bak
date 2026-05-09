@@ -1,4 +1,4 @@
-# Bak.Gör (Alpha) — Technical Documentation
+<h1>Bak.Gör (Alpha) — Technical Documentation</h1>
 
 <p style="margin-top:60px" align="center">
 <img src="./docs/bak-gor-v2.png" width="30%">
