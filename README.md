@@ -35,8 +35,8 @@ The deployed version will be released later...
 1. Clone the repo.
 2. Build an archive in Xcode (`Product → Archive → Distribute App → Direct Distribution`).
 3. Copy `Bak.app` to `/Applications`.
-4. Launch once, then enable the extension in System Settings.
-5. Open **System Settings → Privacy & Security → Extensions → Quick Look** (or on older macOS: System Preferences → Extensions).
+4. Launch ⚠️ **once**, then enable the extension in System Settings.
+5. Open **System Settings → General → Quick Look**.
 6. Enable **Gor**.
 
 
