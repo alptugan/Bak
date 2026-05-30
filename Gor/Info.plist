@@ -13,6 +13,17 @@
 				<string>public.css</string>
 				<string>public.source-code</string>
 				<string>public.plain-text</string>
+				<string>public.yaml</string>
+				<string>public.yml</string>
+				<string>public.toml</string>
+				<string>public.json</string>
+				<string>com.microsoft.typescript</string>
+				<string>com.microsoft.typescript-react</string>
+				<string>public.mpeg-2-transport-stream</string>
+				<string>org.rust-lang.rust</string>
+				<string>com.netscape.javascript-source</string>
+				<string>net.daringfireball.markdown</string>
+				<string>public.data</string>
 			</array>
 			<key>QLSupportsSearchableItems</key>
 			<false/>

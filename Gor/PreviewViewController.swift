@@ -16,142 +16,97 @@ class PreviewViewController: NSViewController, QLPreviewingController {
 
     override func loadView() {
         super.loadView()
-        // Do any additional setup after loading the view.
     }
 
-    /*
-    func preparePreviewOfSearchableItem(identifier: String, queryString: String?) async throws {
-        // Implement this method and set QLSupportsSearchableItems to YES in the Info.plist of the extension if you support CoreSpotlight.
-
-        // Perform any setup necessary in order to prepare the view.
-        // Quick Look will display a loading spinner until this returns.
-    }
-   
-v1*/
     func preparePreviewOfFile(at url: URL, completionHandler: @escaping (Error?) -> Void) {
+        //let fileExtension = url.pathExtension.lowercased()
         do {
-            // 1. Load the text from the file
-            let text = try String(contentsOf: url, encoding: .utf8)
-            
-            // 2. Create a basic text view
-            let textView = NSTextView(frame: self.view.bounds)
-            textView.string = text
-            textView.isEditable = false
-            textView.font = NSFont.monospacedSystemFont(ofSize: 12, weight: .regular)
-            
-            // 3. Wrap it in a scroll view so you can read long files
-            let scrollView = NSScrollView(frame: self.view.bounds)
-            scrollView.hasVerticalScroller = true
-            scrollView.documentView = textView
-            scrollView.autoresizingMask = [.width, .height]
-            
-            // 4. Add to the main view
-            self.view.addSubview(scrollView)
-            
-            completionHandler(nil)
-        } catch {
-            completionHandler(error)
-        }
-    }
-     
-    /*func preparePreviewOfFile(at url: URL, completionHandler: @escaping (Error?) -> Void) {
-        // 1. Mandatory for Sandbox: Access the file safely
-        let isScoped = url.startAccessingSecurityScopedResource()
-
-        defer {
-            if isScoped { url.stopAccessingSecurityScopedResource() }
-        }
-
-        do {
-            // 2. Load data first, then decode to String
-            let data = try Data(contentsOf: url, options: .mappedIfSafe)
-            guard let content = String(data: data, encoding: .utf8) else {
-                throw NSError(
-                    domain: "com.alptugan.Bak",
-                    code: 2,
-                    userInfo: [NSLocalizedDescriptionKey: "Unable to decode file content"]
-                )
+            // Attempt to load as UTF-8 first
+            var text = ""
+            do {
+                text = try String(contentsOf: url, encoding: .utf8)
+            } catch {
+                // FALLBACK: If standard UTF-8 fails (which causes the App Icon crash), force read it as MacRoman or ASCII
+                text = try String(contentsOf: url, encoding: .macOSRoman)
             }
 
-            let font = NSFont.monospacedSystemFont(ofSize: 13, weight: .regular)
-
-            // 3. UI - Gutter
-            let lineCount = content.components(separatedBy: .newlines).count
-            let lineNumbers = (1...max(1, lineCount)).map { "\($0)" }.joined(separator: "\n")
-
-            let gutter = NSTextView()
-            gutter.string = lineNumbers
-            gutter.font = font
-            gutter.alignment = .right
-            gutter.textColor = .secondaryLabelColor
-            gutter.backgroundColor = .clear
-            gutter.isEditable = false
-            gutter.isSelectable = false
-            gutter.translatesAutoresizingMaskIntoConstraints = false
-            gutter.widthAnchor.constraint(equalToConstant: 45).isActive = true
-
-            // 4. UI - Main Text View
-            let textView = NSTextView()
-            textView.string = content
-            textView.font = font
-            textView.textColor = .labelColor
-            textView.isEditable = false
-            textView.backgroundColor = .clear
-            textView.isHorizontallyResizable = true
-            textView.textContainer?.widthTracksTextView = false
-            textView.textContainer?.containerSize = NSSize(
-                width: CGFloat.greatestFiniteMagnitude,
-                height: CGFloat.greatestFiniteMagnitude
-            )
-
-            // 5. Layout - StackView
-            let stackView = NSStackView(views: [gutter, textView])
-            stackView.orientation = .horizontal
-            stackView.spacing = 10
-            stackView.alignment = .top
-            stackView.edgeInsets = NSEdgeInsets(top: 20, left: 10, bottom: 20, right: 20)
-
-            // 6. Layout - ScrollView
-            let scrollView = NSScrollView()
-            scrollView.hasVerticalScroller = true
-            scrollView.hasHorizontalScroller = true
-            scrollView.documentView = stackView
-            scrollView.drawsBackground = false
-            scrollView.translatesAutoresizingMaskIntoConstraints = false
-
-            self.view.addSubview(scrollView)
-
-            NSLayoutConstraint.activate([
-                scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
-                scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-            ])
-
-            // 7. UI - Copy Button
-            let copyButton = NSButton(title: "Copy Text", target: self, action: #selector(copyToClipboard(_:)))
-            copyButton.bezelStyle = .rounded
-            copyButton.translatesAutoresizingMaskIntoConstraints = false
-            self.view.addSubview(copyButton)
-
-            NSLayoutConstraint.activate([
-                copyButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
-                copyButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20),
-                copyButton.widthAnchor.constraint(equalToConstant: 100)
-            ])
-
-            self.representedObject = content
+            setupTextView(with: text)
             completionHandler(nil)
         } catch {
             completionHandler(error)
         }
     }
 
-    @objc func copyToClipboard(_ sender: Any) {
-        if let text = self.representedObject as? String {
-            let pasteboard = NSPasteboard.general
-            pasteboard.clearContents()
-            pasteboard.setString(text, forType: .string)
-        }
+    private func setupTextView(with content: String) {
+        let scrollView = NSTextView.scrollableTextView()
+                scrollView.frame = self.view.bounds
+                scrollView.autoresizingMask = [.width, .height]
+
+                guard let textView = scrollView.documentView as? NSTextView else { return }
+
+                // 2. Define the styling
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineSpacing = 4
+
+                // Read font size from App Group UserDefaults
+                let defaults = UserDefaults(suiteName: "group.com.alptugan.Bak")
+                let storedSize = defaults?.double(forKey: "fontSize") ?? 0
+                let fontSize = storedSize > 0 ? storedSize : 12.0
+
+                let attributes: [NSAttributedString.Key: Any] = [
+                    .font: NSFont.monospacedSystemFont(ofSize: fontSize, weight: .regular),
+                    .foregroundColor: NSColor.textColor,
+                    .paragraphStyle: paragraphStyle
+                ]
+
+                // 3. Apply the styled string
+                textView.textStorage?.setAttributedString(NSAttributedString(string: content, attributes: attributes))
+                textView.isEditable = false
+                textView.isSelectable = true
+
+                // 4. Mount to view
+                self.view.addSubview(scrollView)
+    }
+
+    /// Helper method to safely build the scrollable text viewport architecture
+    /*private func setupTextView(with content: String) {
+        let viewBounds = self.view.bounds
+
+        // 1. Create and configure the Scroll View container wrapper
+        let scrollView = NSScrollView(frame: viewBounds)
+        scrollView.hasVerticalScroller = true
+        scrollView.hasHorizontalScroller = false
+        scrollView.autoresizingMask = [.width, .height]
+
+        // 2. Setup the dynamic Content Size geometry for the embedded text engine
+        let contentSize = scrollView.contentSize
+
+        // 3. Configure the underlying Text View container and options
+        let textView = NSTextView(frame: NSRect(x: 0, y: 0, width: contentSize.width, height: contentSize.height))
+        textView.minSize = NSSize(width: 0.0, height: contentSize.height)
+        textView.maxSize = NSSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
+        textView.isVerticallyResizable = true
+        textView.isHorizontallyResizable = false
+        textView.autoresizingMask = .width
+
+        // 4. Assign visual details and contents
+        // Define a paragraph style to adjust line height
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 3 // Increases space between lines by 4 points
+
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: NSFont.monospacedSystemFont(ofSize: 12, weight: .regular),
+            .foregroundColor: NSColor.textColor,
+            .paragraphStyle: paragraphStyle
+        ]
+
+        // Apply the string with the attributes to the text storage
+        textView.textStorage?.setAttributedString(
+            NSAttributedString(string: content, attributes: attributes)
+        )
+
+        // 5. Connect architecture layers and mount to view tree
+        scrollView.documentView = textView
+        self.view.addSubview(scrollView)
     }*/
 }
