@@ -9,34 +9,22 @@ import SwiftUI
 import ServiceManagement
 internal import Combine
 
-struct FileTypeEntry: Identifiable {
-    let id = UUID()
-    let emoji: String
-    let label: String
-}
-
-private let fileTypes: [FileTypeEntry] = [
-    FileTypeEntry(emoji: "🐍", label: "Python (.py)"),
-    FileTypeEntry(emoji: "💎", label: "Ruby (.rb)"),
-    FileTypeEntry(emoji: "🦅", label: "Swift (.swift)"),
-    FileTypeEntry(emoji: "🌐", label: "JavaScript (.js)"),
-    //FileTypeEntry(emoji: "TS", label: "TypeScript (.ts)"),
-    FileTypeEntry(emoji: "🦀", label: "Rust (.rs)"),
-    FileTypeEntry(emoji: "📦", label: "JSON (.json)"),
-    FileTypeEntry(emoji: "📄", label: "XML (.xml)"),
-    FileTypeEntry(emoji: "⚙️", label: "YAML (.yaml, .yml)"),
-    FileTypeEntry(emoji: "🔧", label: "TOML (.toml)"),
-    FileTypeEntry(emoji: "🎨", label: "CSS (.css)")
-]
-
 struct ContentView: View {
     @State private var launchAtLogin: Bool = false
     @State private var cacheResetStatus: String = ""
     @State private var isExtensionActive: Bool = false
 
     @AppStorage("fontSize", store: UserDefaults(suiteName: "group.com.alptugan.Bak")) private var fontSize: Double = 12.0
+    @AppStorage("syntaxTheme", store: UserDefaults(suiteName: "group.com.alptugan.Bak")) private var syntaxTheme: String = "xcode-dark"
 
     let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
+
+    let syntaxThemes = [
+        "a11y-dark", "a11y-light", "atom-one-dark", "atom-one-light", "color-brewer",
+        "darcula", "dark", "default", "docco", "dracula", "github", "github-dark", "github-dark-dimmed",
+        "github-gist", "intellij-light", "monokai", "night-owl", "nord", "obsidian", "ocean",
+        "shades-of-purple", "srcery", "stackoverflow-dark", "vs-dark", "vs-light", "vs2015", "xcode", "xcode-dark"
+    ]
 
     var body: some View {
         VStack(spacing: 20) {
@@ -54,11 +42,12 @@ struct ContentView: View {
                         .multilineTextAlignment(.center)
                 }
 
-                Divider()
 
                 // MARK: - Status
                 GroupBox {
-                    HStack {
+
+                    Spacer()
+                    HStack() {
                         Label("Quick Look Extension", systemImage: "puzzlepiece.extension")
                         Spacer()
                         if isExtensionActive {
@@ -68,19 +57,19 @@ struct ContentView: View {
                             Label("Disabled", systemImage: "xmark.circle.fill")
                                 .foregroundStyle(.red)
                         }
-                    }
-                }
+                    }.padding(.horizontal, 10).padding(.vertical, 2)
 
-                // MARK: - Maintenance
-                GroupBox(label: Text("Maintenance").font(.headline)) {
+                    Divider()
+
                     VStack(alignment: .center, spacing: 12) {
                         Text("If previews stop working, reset the Quick Look cache.")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                         Button(action: resetCache) {
-                            Label("Reset Quick Look Cache", systemImage: "arrow.clockwise")
+                            Label("Reset Cache", systemImage: "arrow.clockwise")
                         }
                         .buttonStyle(.borderedProminent)
+                        .focusable(false)
                         .padding(.bottom, 10)
 
                         if !cacheResetStatus.isEmpty {
@@ -93,37 +82,23 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, alignment: .center)
                 }
 
-                // MARK: - Supported File Types
-                GroupBox(label: Text("Supported File Types").font(.headline)) {
-                    VStack(alignment: .leading, spacing: 6) {
-                        ForEach(fileTypes) { type in
-                            HStack(spacing: 10) {
-                                Text(type.emoji)
-                                Text(type.label)
-                                    .font(.subheadline)
-                                Spacer()
-                            }
-                        }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                }
-
                 // MARK: - Preferences
                 GroupBox(label: Text("Preferences").font(.headline)) {
                     VStack(alignment: .leading, spacing: 12) {
-                        /*
-                        Toggle("Launch at Login", isOn: $launchAtLogin)
-                        .onChange(of: launchAtLogin) { _, newValue in
-                            if newValue {
-                                try? SMAppService.mainApp.register()
-                            } else {
-                                try? SMAppService.mainApp.unregister()
-                            }
-                        }
-                        */
                         HStack {
                             Text("Font Size: \(Int(fontSize))")
                             Slider(value: $fontSize, in: 8...36, step: 1)
+                            .focusable(false)
+                        }
+
+                        HStack {
+                            Text("Theme:")
+                            Picker("", selection: $syntaxTheme) {
+                                ForEach(syntaxThemes, id: \.self) { theme in
+                                    Text(theme).tag(theme)
+                                }
+                            }
+                            .focusable(false)
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)

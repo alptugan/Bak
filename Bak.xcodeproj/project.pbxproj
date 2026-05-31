@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F106C4952FCC85180017A098 /* Highlighter in Frameworks */ = {isa = PBXBuildFile; productRef = F106C4942FCC85180017A098 /* Highlighter */; };
 		F147F9402F4845C500A0122F /* Gor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F147F9312F4845C500A0122F /* Gor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F147F9462F484CDD00A0122F /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F147F9332F4845C500A0122F /* Quartz.framework */; };
 /* End PBXBuildFile section */
@@ -42,13 +43,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		F14700000000000000000001 /* Exceptions for "Bak" folder in "Bak" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = F147F91E2F48456B00A0122F /* Bak */;
-		};
 		F147F9412F4845C500A0122F /* Exceptions for "Gor" folder in "Gor" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -69,7 +63,6 @@
 		F147F9212F48456B00A0122F /* Bak */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				F14700000000000000000001 /* Exceptions for "Bak" folder in "Bak" target */,
 				F19556132FB13137002C3FE8 /* Exceptions for "Bak" folder in "Gor" target */,
 			);
 			path = Bak;
@@ -97,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F106C4952FCC85180017A098 /* Highlighter in Frameworks */,
 				F147F9462F484CDD00A0122F /* Quartz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +169,7 @@
 			);
 			name = Gor;
 			packageProductDependencies = (
+				F106C4942FCC85180017A098 /* Highlighter */,
 			);
 			productName = Gor;
 			productReference = F147F9312F4845C500A0122F /* Gor.appex */;
@@ -207,6 +202,9 @@
 			);
 			mainGroup = F147F9162F48456B00A0122F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F106C4932FCC85180017A098 /* XCRemoteSwiftPackageReference "HighlighterSwift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F147F9202F48456B00A0122F /* Products */;
 			projectDirPath = "";
@@ -424,7 +422,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.7;
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alptugan.Bak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -475,7 +473,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.7;
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 3.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alptugan.Bak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -523,7 +521,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.7;
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alptugan.Bak.Gor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -571,7 +569,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.7;
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alptugan.Bak.Gor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -616,6 +614,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F106C4932FCC85180017A098 /* XCRemoteSwiftPackageReference "HighlighterSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/smittytone/HighlighterSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F106C4942FCC85180017A098 /* Highlighter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F106C4932FCC85180017A098 /* XCRemoteSwiftPackageReference "HighlighterSwift" */;
+			productName = Highlighter;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F147F9172F48456B00A0122F /* Project object */;
 }

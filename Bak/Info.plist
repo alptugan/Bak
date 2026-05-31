@@ -2,37 +2,36 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <!-- Document Types tells macOS your app is a Viewer for these UTIs -->
     <key>CFBundleDocumentTypes</key>
     <array>
         <dict>
             <key>CFBundleTypeName</key>
-            <string>Source Files</string>
+            <string>Supported Code Files</string>
             <key>CFBundleTypeRole</key>
             <string>Viewer</string>
             <key>LSHandlerRank</key>
-            <string>Default</string>
+            <string>Owner</string>
             <key>LSItemContentTypes</key>
             <array>
-                <string>public.source-code</string>
                 <string>public.mpeg-2-transport-stream</string>
-                <string>public.plain-text</string>
+                <string>public.toml</string>
+                <string>com.microsoft.typescript</string>
             </array>
         </dict>
     </array>
 
-    <!-- Exported Types forcefully tells macOS who owns the file extensions -->
-    <key>UTExportedTypeDeclarations</key>
+    <key>UTImportedTypeDeclarations</key>
     <array>
         <dict>
-            <key>UTTypeIdentifier</key>
-            <string>com.microsoft.typescript</string>
-            <key>UTTypeDescription</key>
-            <string>TypeScript File</string>
             <key>UTTypeConformsTo</key>
             <array>
                 <string>public.source-code</string>
+                <string>public.plain-text</string>
             </array>
+            <key>UTTypeDescription</key>
+            <string>TypeScript File</string>
+            <key>UTTypeIdentifier</key>
+            <string>public.mpeg-2-transport-stream</string>
             <key>UTTypeTagSpecification</key>
             <dict>
                 <key>public.filename-extension</key>
@@ -41,20 +40,22 @@
                 </array>
             </dict>
         </dict>
+        
         <dict>
-            <key>UTTypeIdentifier</key>
-            <string>org.rust-lang.rust</string>
-            <key>UTTypeDescription</key>
-            <string>Rust File</string>
             <key>UTTypeConformsTo</key>
             <array>
                 <string>public.source-code</string>
+                <string>public.plain-text</string>
             </array>
+            <key>UTTypeDescription</key>
+            <string>TOML Configuration File</string>
+            <key>UTTypeIdentifier</key>
+            <string>public.toml</string>
             <key>UTTypeTagSpecification</key>
             <dict>
                 <key>public.filename-extension</key>
                 <array>
-                    <string>rs</string>
+                    <string>toml</string>
                 </array>
             </dict>
         </dict>

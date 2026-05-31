@@ -15,5 +15,6 @@ struct BakApp: App {
                 .fixedSize()
         }
         .windowResizability(.contentSize)
+        .windowStyle(.hiddenTitleBar)
     }
 }

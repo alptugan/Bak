@@ -1,43 +1,59 @@
-# Bak.Gör (Alpha) — Technical Documentation
+<h1 align="center">Bak.Gör —— v3.2</h1>
+<p align="center">A native macOS Quick Look extension on steroids. Experience instant syntax highlighting and customizable themes right inside Finder.</p>
+<!--p align="center">﹏﹏ ‿︵ ﹏﹏</p-->
+
+<p align="center">・・・・・・・・・・ ༄ ・・・・・・・・・・</p> 
+<p align="center">
+Download the app from <a href="https://github.com/alptugan/Bak/releases/latest">Releases</a><br>
+(Requires minimum Mac OS 11.0 - 15.7).<br>
+<strong style="color:#ff9900">⚠️ PLEASE FOLLOW "Installation" & "Troubleshoot" instructions ⚠️</strong>
+</p>
 <br>
 <p align="center">
-<img src="./docs/bak-gor-v2.png" width="30%">
+    <img src="./docs/bak-gor-v2.png" width="30%" align="middle" />
+    <img src="./docs/BakGor.png" width="60%" align="middle" />
 </p>
 
-
+<p align="center"> ⁂ </p>
 
 ## Overview
-Bak.Gör is a macOS Quick Look extension that previews plain-text-based files (source code, CSS, plain text) directly in Finder via the Space key. (`XCode 15+`, `Swift 5.9+`)
+Bak.Gör is a macOS Quick Look extension that previews plain-text-based files directly in Finder via the Space key. (`XCode 15+`, `Swift 5.9+`, `MacOS 15.7+`)
 
-<p style="margin-top:20px" align="left">
-(WIP) MacOS quicklook extension to preview CSS files via space key. More file types will be added in the future release of the extension. 
-</p>
+**Supported File Types:**
+Thanks to the underlying highlight engine, Bak.Gör natively supports syntax highlighting for **100+ programming languages and text formats**, including but not limited to:
+- **Web & Data:** `HTML`, `CSS`, `JavaScript`, `TypeScript`, `JSON`, `XML`
+- **Languages:** `Swift`, `Python`, `C`, `C++`, `Java`, `Ruby`, `Go`, `Rust`
+- **Scripts & Configs:** `Bash`, `Shell`, `YAML`, `TOML`, `Markdown`
+- And dozens more standard plain-text source files.
 
 <p style="margin-top:20px" align="center">
-<img src="./docs/bakgor01.jpeg" width="100%">
+<img src="./docs/bakgor-before-after.jpeg" width="100%">
 </p>
 
+<br/>
+<p align="center"> ⁂ </p>
+
 ## Motivation
-Whenever I need to quickly check `CSS` files, I have to double-click and wait for VS Code to initialized, etc... I've just wanted to hit Space key and see what is inside of the `CSS` document quickly. To overcome this tedious process, I've developed Bak.Gör. The name of the of the extensin is in Turkish. 
+Whenever I need to quickly review a `CSS`, `JSON`, or any other source code file, I usually have to double-click and wait for the IDE like VS Code or Xcode to initialize. I just want to hit the Space key in Finder and see the formatted, syntax-highlighted inside of the document instantly. To overcome this tedious process, I've developed Bak.Gör. The name of the extension is derived from Turkish:
 
-Bak = Look
+- **Bak** = Look
+- **Gör** = See
 
-Gör = See 
+<br/>
+<p align="center"> ⁂ </p>
 
-
-## Installation (End User)
-The deployed version will be released later...
+## Installation
+1. Download the latest release. 
+2. Move the app to your Applications folder.
+3. Copy `Bak.app` to `/Applications`.
+4. Launch the `Bak.app` ⚠️ **once**, and set your preferred theme and font-size.
+5. Open **System Settings → General → Quick Look**.
+6. Enable **Gor**.
+7. Click on any source code file and hit space.
 
 <p style="margin-top:20px" align="center">
 <img src="./docs/bakgor02.jpeg" width="100%">
 </p>
-
-1. Clone the repo.
-2. Build an archive in Xcode (`Product → Archive → Distribute App → Direct Distribution`).
-3. Copy `Bak.app` to `/Applications`.
-4. Launch ⚠️ **once**, then enable the extension in System Settings.
-5. Open **System Settings → General → Quick Look**.
-6. Enable **Gor**.
 
 
 ### Troubleshoot
@@ -47,15 +63,18 @@ If the extension doesn't preview `CSS` files, try the followings;
 
 or
 
-2. Reset Quick Look cache and try again.
+2. Reset Quick Look cache and try again. Or try "Reset Cache" button on the app.
 ```
 qlmanage -r
 qlmanage -r cache
 ```
 
+3. The app cannot be opened, etc... Gate Keeper related issues. Refer to 
 
+<br/>
+<p align="center"> ⁂ </p>
 
-## Architecture:
+## Architecture
 - Bak — Host SwiftUI app (required container for the extension)
 - Gor — Quick Look Preview Extension (the actual previewer)
 - License: [GPL-3.0](https://github.com/alptugan/Bak/blob/6051b31ce56e64833cc7b989cf78af2a700491c6/LICENSE)
@@ -70,3 +89,16 @@ Gor/
 ├── Info.plist                              # Extension config & supported UTIs
 ├── Base.lproj/PreviewViewController.xib
 ```
+
+<br/>
+<p align="center"> ⁂ </p>
+
+## Dependencies & Acknowledgments
+**[HighlighterSwift](https://github.com/smittytone/HighlighterSwift)**: This project leverages HighlighterSwift for fast and reliable syntax highlighting. HighlighterSwift is distributed under the MIT License, and its core engine, *Highlight.js*, operates under the BSD 3-Clause License.
+
+br/>
+<p align="center"> ⁂ </p>
+
+## Contact
+
+If you have any questions, suggestions, or feedback, please feel free to use Issues section.

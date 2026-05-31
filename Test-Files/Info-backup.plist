@@ -11,6 +11,9 @@
 			<key>QLSupportedContentTypes</key>
 			<array>
 				<string>public.css</string>
+				<string>public.content</string>
+				<string>public.source-code</string>
+				<string>public.plain-text</string>
 				<string>public.toml</string>
 				<string>public.yaml</string>
 				<string>public.yml</string>
@@ -39,6 +42,8 @@
 				<string>public.tex</string>
 				<string>public.text</string>
 				<string>public.shell-script</string>
+				<string>public.data</string>
+				<string>public.item</string>
 				<string>public.c-header</string>
 				<string>public.objective-c-source</string>
 				<string>public.c-source</string>
@@ -110,10 +115,6 @@
 				<string>dyn.ah62d4rv4ge80w5xm</string>
 				<string>dyn.ah62d4rv4ge8023pxsq</string>
 				<string>dyn.ah62d4rv4ge80g55sq2</string>
-                <string>public.source-code</string>
-                <string>public.plain-text</string>
-                <string>public.data</string>
-                <string>public.item</string>
 			</array>
 			<key>QLSupportsSearchableItems</key>
 			<false/>
