@@ -43,7 +43,7 @@ Whenever I need to quickly review a `CSS`, `JSON`, or any other source code file
 <p align="center"> ⁂ </p>
 
 ## Installation
-1. Download the latest release. 
+1. Download the latest <a href="https://github.com/alptugan/Bak/releases/latest">release</a>. 
 2. Move the app to your Applications folder.
 3. Copy `Bak.app` to `/Applications`.
 4. Launch the `Bak.app` ⚠️ **once**, and set your preferred theme and font-size.
@@ -96,7 +96,7 @@ Gor/
 ## Dependencies & Acknowledgments
 **[HighlighterSwift](https://github.com/smittytone/HighlighterSwift)**: This project leverages HighlighterSwift for fast and reliable syntax highlighting. HighlighterSwift is distributed under the MIT License, and its core engine, *Highlight.js*, operates under the BSD 3-Clause License.
 
-br/>
+<br/>
 <p align="center"> ⁂ </p>
 
 ## Contact
