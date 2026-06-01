@@ -57,19 +57,23 @@ Whenever I need to quickly review a `CSS`, `JSON`, or any other source code file
 
 
 ### Troubleshoot
-If the extension doesn't preview `CSS` files, try the followings;
+1. If the extension doesn't preview `CSS` files, try the followings;
 
-1. While holding down `Option` key, right-click on the `Finder` icon and choose `relaunch`
+    - While holding down `Option` key, right-click on the `Finder` icon and choose `relaunch`
 
-or
+        or
 
-2. Reset Quick Look cache and try again. Or try "Reset Cache" button on the app.
-```
-qlmanage -r
-qlmanage -r cache
-```
+    - Reset Quick Look cache and try again. Or try "Reset Cache" button on the app.
+        ```
+        qlmanage -r
+        qlmanage -r cache
+        ```
 
-3. The app cannot be opened, etc... Gate Keeper related issues. Refer to 
+2. **The app cannot be opened**, etc... Gate Keeper related issues. Refer to the [section](https://github.com/alptugan/icns-creator#option-1-disable-the-gate-keeper-recommended).
+    - Sometimes unsigned apps should be dequaratined. Refer to run the following code or use apps like [this](https://github.com/alienator88/Sentinel/tree/main).
+    
+        `xattr -d com.apple.quarantine /Applications/Bak.app`  
+
 
 <br/>
 <p align="center"> ⁂ </p>
