@@ -1,4 +1,4 @@
-<h1 align="center">Bak.Gör —— v3.2</h1>
+<h1 align="center">Bak.Gör</h1>
 <p align="center">A native macOS Quick Look extension on steroids. Experience instant syntax highlighting and customizable themes right inside Finder.</p>
 <!--p align="center">﹏﹏ ‿︵ ﹏﹏</p-->
 
