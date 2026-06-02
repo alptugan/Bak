@@ -24,6 +24,7 @@ Thanks to the underlying highlight engine, Bak.Gör natively supports syntax hig
 - **Web & Data:** `HTML`, `CSS`, `JavaScript`, `TypeScript`, `JSON`, `XML`
 - **Languages:** `Swift`, `Python`, `C`, `C++`, `Java`, `Ruby`, `Go`, `Rust`
 - **Scripts & Configs:** `Bash`, `Shell`, `YAML`, `TOML`, `Markdown`
+- **Creative Coding:** `Processing (*.pde)`, `Arduino (*.ino)`
 - And dozens more standard plain-text source files.
 
 <p style="margin-top:20px" align="center">
