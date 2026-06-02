@@ -110,10 +110,12 @@
 				<string>dyn.ah62d4rv4ge80w5xm</string>
 				<string>dyn.ah62d4rv4ge8023pxsq</string>
 				<string>dyn.ah62d4rv4ge80g55sq2</string>
-                <string>public.source-code</string>
-                <string>public.plain-text</string>
-                <string>public.data</string>
-                <string>public.item</string>
+				<string>dyn.ah62d4rv4ge80w5xt</string>
+				<string>dyn.ah62d4rv4ge81a3df</string>
+				<string>public.source-code</string>
+				<string>public.plain-text</string>
+				<string>public.data</string>
+				<string>public.item</string>
 			</array>
 			<key>QLSupportsSearchableItems</key>
 			<false/>
