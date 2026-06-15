@@ -14,8 +14,8 @@ struct ContentView: View {
     @State private var cacheResetStatus: String = ""
     @State private var isExtensionActive: Bool = false
 
-    @AppStorage("fontSize", store: UserDefaults(suiteName: "group.com.alptugan.Bak")) private var fontSize: Double = 12.0
-    @AppStorage("syntaxTheme", store: UserDefaults(suiteName: "group.com.alptugan.Bak")) private var syntaxTheme: String = "xcode-dark"
+    @AppStorage("fontSize") private var fontSize: Double = 12.0
+    @AppStorage("syntaxTheme") private var syntaxTheme: String = "xcode-dark"
 
     let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
 

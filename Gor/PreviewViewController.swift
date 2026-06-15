@@ -47,8 +47,10 @@ class PreviewViewController: NSViewController, QLPreviewingController {
 
         guard let textView = scrollView.documentView as? NSTextView else { return }
 
-        // Read preferences from App Group UserDefaults
-        let defaults = UserDefaults(suiteName: "group.com.alptugan.Bak")
+        // Read preferences from the main app's standard UserDefaults
+        // Since we can't use App Groups, we use the main app's bundle ID
+        // Make sure Gor.entitlements has com.apple.security.temporary-exception.shared-preference.read-only
+        let defaults = UserDefaults(suiteName: "com.alptugan.Bak")
         let storedSize = defaults?.double(forKey: "fontSize") ?? 0
         let fontSize = storedSize > 0 ? CGFloat(storedSize) : 12.0
         let syntaxTheme = defaults?.string(forKey: "syntaxTheme") ?? "xcode-dark"
