@@ -65,15 +65,17 @@ Whenever I need to quickly review a `CSS`, `JSON`, or any other source code file
         or
 
     - Reset Quick Look cache and try again. Or try "Reset Cache" button on the app.
-        ```
-        qlmanage -r
-        qlmanage -r cache
-        ```
+
 
 2. **The app cannot be opened**, etc... Gate Keeper related issues. Refer to the [section](https://github.com/alptugan/icns-creator#option-1-disable-the-gate-keeper-recommended).
-    - Sometimes unsigned apps should be dequaratined. Refer to run the following code or use apps like [this](https://github.com/alienator88/Sentinel/tree/main).
+    - Sometimes unsigned apps should be dequaratined. Refer to run the following code or use apps like [this](https://github.com/alienator88/Sentinel/tree/main). 
     
-        `xattr -d com.apple.quarantine /Applications/Bak.app`  
+        Run this command to strip away the Apple quarantine flag (which is attached automatically when the file is downloaded or transferred):
+    
+        `xattr -cr /Applications/Bak.app` 
+    - Run this command to force a fresh Ad-Hoc signature onto the app using the new Mac's internal security credentials:
+
+        `codesign --force --deep --sign - /Applications/Bak.app`
 
 
 <br/>
