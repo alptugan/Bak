@@ -1,5 +1,16 @@
 <h1 align="center">Bak.Gör</h1>
 <p align="center">A native macOS Quick Look extension on steroids. Experience instant syntax highlighting and customizable themes right inside Finder.</p>
+
+<p align="center">
+
+<p align="center">
+  <a href="https://github.com/alptugan/Bak/commits/main/">
+    <img src="https://img.shields.io/github/commit-activity/t/alptugan/Bak?style=plastic&label=Commit%20History&labelColor=ffcc00&color=444" alt="GitHub commit activity" width="120" />
+  </a>
+</p>
+
+</p>
+
 <!--p align="center">﹏﹏ ‿︵ ﹏﹏</p-->
 
 <p align="center">・・・・・・・・・・ ༄ ・・・・・・・・・・</p> 
@@ -56,8 +67,10 @@ Whenever I need to quickly review a `CSS`, `JSON`, or any other source code file
 <img src="./docs/bakgor02.jpeg" width="100%">
 </p>
 
+## How to Add New File Types?
 
-### Troubleshoot
+
+## Troubleshoot
 1. If the extension doesn't preview `CSS` files, try the followings;
 
     - While holding down `Option` key, right-click on the `Finder` icon and choose `relaunch`

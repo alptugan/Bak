@@ -1,13 +1,40 @@
 {
-  "originHash" : "00a1c96095892a05bfd089593813422ede18735e452666e3e7a642ebd9048a45",
+  "originHash" : "09440369b06a6765d4097df590cda215c2e12e7779c0f0dc0c5558313dc4391e",
   "pins" : [
     {
-      "identity" : "highlighterswift",
+      "identity" : "swift-tree-sitter",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/smittytone/HighlighterSwift",
+      "location" : "https://github.com/tree-sitter/swift-tree-sitter",
       "state" : {
-        "revision" : "fe7aae9c9b31d3b296fd3d2dd575e1a207bb29e0",
-        "version" : "3.1.0"
+        "revision" : "08ef81eb8620617b55b08868126707ad72bf754f",
+        "version" : "0.25.0"
+      }
+    },
+    {
+      "identity" : "tree-sitter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tree-sitter/tree-sitter",
+      "state" : {
+        "revision" : "da6fe9beb4f7f67beb75914ca8e0d48ae48d6406",
+        "version" : "0.25.10"
+      }
+    },
+    {
+      "identity" : "tree-sitter-json",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tree-sitter/tree-sitter-json",
+      "state" : {
+        "branch" : "master",
+        "revision" : "001c28d7a29832b06b0e831ec77845553c89b56d"
+      }
+    },
+    {
+      "identity" : "tree-sitter-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/alex-pinkus/tree-sitter-swift",
+      "state" : {
+        "branch" : "with-generated-files",
+        "revision" : "31d17fe7e818a2048c808b5c6fdc2dc792f4f5b5"
       }
     }
   ],

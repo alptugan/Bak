@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F106C4952FCC85180017A098 /* Highlighter in Frameworks */ = {isa = PBXBuildFile; productRef = F106C4942FCC85180017A098 /* Highlighter */; };
+		B00100012FD000010017A098 /* SwiftTreeSitter in Frameworks */ = {isa = PBXBuildFile; productRef = B00100002FD000010017A098 /* SwiftTreeSitter */; };
+		B00100032FD000010017A098 /* TreeSitterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B00100022FD000010017A098 /* TreeSitterSwift */; };
+		B00100052FD000010017A098 /* TreeSitterJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B00100042FD000010017A098 /* TreeSitterJSON */; };
 		F147F9402F4845C500A0122F /* Gor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F147F9312F4845C500A0122F /* Gor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F147F9462F484CDD00A0122F /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F147F9332F4845C500A0122F /* Quartz.framework */; };
 /* End PBXBuildFile section */
@@ -90,7 +92,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F106C4952FCC85180017A098 /* Highlighter in Frameworks */,
+				B00100012FD000010017A098 /* SwiftTreeSitter in Frameworks */,
+				B00100032FD000010017A098 /* TreeSitterSwift in Frameworks */,
+				B00100052FD000010017A098 /* TreeSitterJSON in Frameworks */,
 				F147F9462F484CDD00A0122F /* Quartz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,7 +173,9 @@
 			);
 			name = Gor;
 			packageProductDependencies = (
-				F106C4942FCC85180017A098 /* Highlighter */,
+				B00100002FD000010017A098 /* SwiftTreeSitter */,
+				B00100022FD000010017A098 /* TreeSitterSwift */,
+				B00100042FD000010017A098 /* TreeSitterJSON */,
 			);
 			productName = Gor;
 			productReference = F147F9312F4845C500A0122F /* Gor.appex */;
@@ -203,7 +209,9 @@
 			mainGroup = F147F9162F48456B00A0122F;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				F106C4932FCC85180017A098 /* XCRemoteSwiftPackageReference "HighlighterSwift" */,
+				B00100102FD000010017A098 /* XCRemoteSwiftPackageReference "swift-tree-sitter" */,
+				B00100112FD000010017A098 /* XCRemoteSwiftPackageReference "tree-sitter-swift" */,
+				B00100122FD000010017A098 /* XCRemoteSwiftPackageReference "tree-sitter-json" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F147F9202F48456B00A0122F /* Products */;
@@ -422,7 +430,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.7;
-				MARKETING_VERSION = 3.5;
+				MARKETING_VERSION = 3.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alptugan.Bak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -474,7 +482,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.7;
-				MARKETING_VERSION = 3.5;
+				MARKETING_VERSION = 3.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alptugan.Bak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -523,7 +531,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.7;
-				MARKETING_VERSION = 3.5;
+				MARKETING_VERSION = 3.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alptugan.Bak.Gor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -571,7 +579,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.7;
-				MARKETING_VERSION = 3.5;
+				MARKETING_VERSION = 3.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alptugan.Bak.Gor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -618,21 +626,47 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F106C4932FCC85180017A098 /* XCRemoteSwiftPackageReference "HighlighterSwift" */ = {
+		B00100102FD000010017A098 /* XCRemoteSwiftPackageReference "swift-tree-sitter" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/smittytone/HighlighterSwift";
+			repositoryURL = "https://github.com/tree-sitter/swift-tree-sitter";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.0;
+				minimumVersion = 0.10.0;
+			};
+		};
+		B00100112FD000010017A098 /* XCRemoteSwiftPackageReference "tree-sitter-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alex-pinkus/tree-sitter-swift";
+			requirement = {
+				branch = "with-generated-files";
+				kind = branch;
+			};
+		};
+		B00100122FD000010017A098 /* XCRemoteSwiftPackageReference "tree-sitter-json" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tree-sitter/tree-sitter-json";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F106C4942FCC85180017A098 /* Highlighter */ = {
+		B00100002FD000010017A098 /* SwiftTreeSitter */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F106C4932FCC85180017A098 /* XCRemoteSwiftPackageReference "HighlighterSwift" */;
-			productName = Highlighter;
+			package = B00100102FD000010017A098 /* XCRemoteSwiftPackageReference "swift-tree-sitter" */;
+			productName = SwiftTreeSitter;
+		};
+		B00100022FD000010017A098 /* TreeSitterSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B00100112FD000010017A098 /* XCRemoteSwiftPackageReference "tree-sitter-swift" */;
+			productName = TreeSitterSwift;
+		};
+		B00100042FD000010017A098 /* TreeSitterJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B00100122FD000010017A098 /* XCRemoteSwiftPackageReference "tree-sitter-json" */;
+			productName = TreeSitterJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
